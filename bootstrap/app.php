@@ -48,6 +48,8 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
