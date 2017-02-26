@@ -1,5 +1,6 @@
 FROM php:7-fpm
 
-RUN /usr/local/bin/docker-php-ext-install mysqli
+RUN /usr/local/bin/docker-php-ext-install mysqli pdo_mysql
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 CMD ["php-fpm"]

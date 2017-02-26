@@ -1,3 +1,4 @@
+<?php var_export($_SERVER);die;?>
 <?php
 
 /*

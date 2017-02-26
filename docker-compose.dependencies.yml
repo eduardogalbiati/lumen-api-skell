@@ -1,0 +1,9 @@
+version: '2'
+services:
+  dependencies:
+    image: composer
+    volumes:
+      - ./:/app
+    command: composer install
+
+

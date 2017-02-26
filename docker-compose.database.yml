@@ -1,0 +1,13 @@
+version: '2'
+services:
+  database:
+    build:
+      context: .
+      dockerfile: /docker/etc/docker/dockerfile_db
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - mysql
+    command: php artisan migrate
+
+
