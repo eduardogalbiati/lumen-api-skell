@@ -36,4 +36,35 @@ services:
       - MYSQL_USER=app_user
       - MYSQL_PASSWORD=userapp123
 
+  elasticsearch:
+    build: docker/elasticsearch/
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+    volumes:
+      - ./storage/elasticsearch:/usr/share/elasticsearch/data
+
+  logstash:
+    build: docker/logstash/
+    command: -f /etc/logstash/conf.d/
+    volumes:
+      - ./docker/logstash/config:/etc/logstash/conf.d
+
+    ports:
+      - "5000:5000"
+    depends_on:
+      - elasticsearch
+      - php7
+
+  kibana:
+    build: docker/kibana/
+    volumes:
+      - ./docker/kibana/config/:/etc/kibana/
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
 

@@ -13,12 +13,13 @@ use Dingo\Api\Routing\Router;
 |
 */
 
-$app->get('/', function () use ($app) {
+/*$app->get('/', function () use ($app) {
     return $app->version();
-});
+});*/
+$app->get('/', 'Controller@hello');
 
-$api = app(Router::class);
+/*$api = app(Router::class);
 
 $api->version('v1', function ($api) {
     $api->get('hello', 'App\Http\Controllers\Controller@hello');
-});
+});*/

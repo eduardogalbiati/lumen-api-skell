@@ -19,11 +19,11 @@ try {
 |
 */
 
-$app = new Laravel\Lumen\Application(
+$app = new App\MyApp(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
 
